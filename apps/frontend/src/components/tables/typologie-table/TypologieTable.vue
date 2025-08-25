@@ -48,37 +48,29 @@
             </div>
           </td>
           <td class="px-5 py-4 sm:px-6">
-              <span
-                :class="[
-                  'rounded-full px-2 py-0.5 text-theme-xs font-medium',
-                  {
-                    'bg-success-50 text-success-700 dark:bg-success-500/15 dark:text-success-500':
-                      typologie.compulsorySignature,
-                    'bg-warning-50 text-warning-700 dark:bg-warning-500/15 dark:text-warning-400':
-                      !typologie.compulsorySignature,
-                  },
-                ]"
-              >
-                OK
+               <span v-if="typologie.requiresSignature"
+                     class="bg-success-50 text-success-700 dark:bg-success-500/15 dark:text-success-500"
+               >
+                Oui
+              </span>
+            <span v-else
+                  class="rounded-full bg-warning-50 text-warning-700 dark:bg-warning-500/15 dark:text-warning-500">
+                Non
               </span>
           </td>
           <td class="px-5 py-4 sm:px-6">
-              <span
-                :class="[
-                  'rounded-full px-2 py-0.5 text-theme-xs font-medium',
-                  {
-                    'bg-success-50 text-success-700 dark:bg-success-500/15 dark:text-success-500':
-                      typologie.compulsorySignature,
-                    'bg-warning-50 text-warning-700 dark:bg-warning-500/15 dark:text-warning-400':
-                      !typologie.compulsorySignature,
-                  },
-                ]"
+              <span v-if="typologie.requiresInitials"
+                class="bg-success-50 text-success-700 dark:bg-success-500/15 dark:text-success-500"
               >
-                OK
+                Oui
+              </span>
+              <span v-else
+                class="rounded-full bg-warning-50 text-warning-700 dark:bg-warning-500/15 dark:text-warning-500">
+                Non
               </span>
           </td>
           <td class="px-5 py-4 sm:px-6">
-            <p class="text-gray-500 text-theme-sm dark:text-gray-400">{{ typologie.emailAddresses }}</p>
+            <p class="text-gray-500 text-theme-sm dark:text-gray-400">{{ typologie.emailAdresses }}</p>
           </td>
           <td class="px-5 py-4 sm:px-6">
             <div class="flex items-center gap-5">
@@ -101,12 +93,13 @@ import {
 } from '@/icons'
 import Button from '@/components/ui/Button.vue'
 import { onMounted, ref } from "vue";
+import type { Typologie } from "@/components/tables/typologie-table/Typologie.ts";
 
-const typologies = ref([]);
+const typologies = ref<Typologie[]>([]);
 
 onMounted(async () => {
   const res = await fetch("http://localhost:8080/api/typologie");
-  typologies.value = await res.json();
+  typologies.value = await res.json() as Typologie[];
 })
 
 </script>
