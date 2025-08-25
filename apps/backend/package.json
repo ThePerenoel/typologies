@@ -1,0 +1,15 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "API REST avec WildFly",
+  "scripts": {
+    "build": "mvn clean package",
+    "dev": "./target/server/bin/standalone.sh",
+    "clean": "mvn clean && rm -rf target/",
+    "test": "mvn test",
+    "lint": "echo 'Pas de linting configuré pour Maven'"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
