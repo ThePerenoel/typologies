@@ -4,7 +4,7 @@
   "description": "API REST avec WildFly",
   "scripts": {
     "build": "mvn clean package",
-    "dev": "./target/server/bin/standalone.sh",
+    "dev": "mvn clean wildfly:dev",
     "clean": "mvn clean && rm -rf target/",
     "test": "mvn test",
     "lint": "echo 'Pas de linting configuré pour Maven'"

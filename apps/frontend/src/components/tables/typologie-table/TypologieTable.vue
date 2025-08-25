@@ -28,7 +28,7 @@
         </thead>
         <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
         <tr
-          v-for="(typology, index) in typologies"
+          v-for="(typologie, index) in typologies"
           :key="index"
           class="border-t border-gray-100 dark:border-gray-800"
         >
@@ -39,10 +39,10 @@
               </div>
               <div>
                   <span class="block font-medium text-gray-800 text-theme-sm dark:text-white/90">
-                    {{ typology.title }}
+                    {{ typologie.title }}
                   </span>
                 <span class="block text-gray-500 text-theme-xs dark:text-gray-400">
-                    {{ typology.type }}
+                    {{ typologie.type }}
                   </span>
               </div>
             </div>
@@ -53,9 +53,9 @@
                   'rounded-full px-2 py-0.5 text-theme-xs font-medium',
                   {
                     'bg-success-50 text-success-700 dark:bg-success-500/15 dark:text-success-500':
-                      typology.compulsorySignature,
+                      typologie.compulsorySignature,
                     'bg-warning-50 text-warning-700 dark:bg-warning-500/15 dark:text-warning-400':
-                      !typology.compulsorySignature,
+                      !typologie.compulsorySignature,
                   },
                 ]"
               >
@@ -68,9 +68,9 @@
                   'rounded-full px-2 py-0.5 text-theme-xs font-medium',
                   {
                     'bg-success-50 text-success-700 dark:bg-success-500/15 dark:text-success-500':
-                      typology.compulsorySignature,
+                      typologie.compulsorySignature,
                     'bg-warning-50 text-warning-700 dark:bg-warning-500/15 dark:text-warning-400':
-                      !typology.compulsorySignature,
+                      !typologie.compulsorySignature,
                   },
                 ]"
               >
@@ -78,7 +78,7 @@
               </span>
           </td>
           <td class="px-5 py-4 sm:px-6">
-            <p class="text-gray-500 text-theme-sm dark:text-gray-400">{{ typology.emailAddresses }}</p>
+            <p class="text-gray-500 text-theme-sm dark:text-gray-400">{{ typologie.emailAddresses }}</p>
           </td>
           <td class="px-5 py-4 sm:px-6">
             <div class="flex items-center gap-5">
@@ -96,49 +96,19 @@
 <script lang="ts" setup>
 import {
   DocsIcon,
-  PaperclipIcon,
   PlusIcon, RefreshIcon,
   TrashIcon
 } from '@/icons'
 import Button from '@/components/ui/Button.vue'
+import { onMounted, ref } from "vue";
 
-const typologies = [
-  {
-    title: "Fiche de paie",
-    type: "Géneral",
-    compulsorySignature: true,
-    compulsoryInitials: false,
-    emailAddresses : ["aaa@gmail.com", "bbb@gmail.com", "ccc@gmail.com"],
-  },
-  {
-    title: "Contrat de travail",
-    type: "Géneral",
-    compulsorySignature: true,
-    compulsoryInitials: true,
-    emailAddresses : ["aaa@gmail.com", "bbb@gmail.com", "ccc@gmail.com"],
-  },
-  {
-    title: "Bulletin de salaire",
-    type: "Géneral",
-    compulsorySignature: false,
-    compulsoryInitials: false,
-    emailAddresses : ["aaa@gmail.com", "bbb@gmail.com", "ccc@gmail.com"],
-  },
-  {
-    title: "Note de frais",
-    type: "Géneral",
-    compulsorySignature: true,
-    compulsoryInitials: false,
-    emailAddresses : ["aaa@gmail.com", "bbb@gmail.com", "ccc@gmail.com"],
-  },
-  {
-    title: "Facture",
-    type: "Géneral",
-    compulsorySignature: false,
-    compulsoryInitials: false,
-    emailAddresses : ["aaa@gmail.com", "bbb@gmail.com", "ccc@gmail.com"],
-  },
-]
+const typologies = ref([]);
+
+onMounted(async () => {
+  const res = await fetch("http://localhost:8080/api/typologie");
+  typologies.value = await res.json();
+})
+
 </script>
 
 <style scoped>
