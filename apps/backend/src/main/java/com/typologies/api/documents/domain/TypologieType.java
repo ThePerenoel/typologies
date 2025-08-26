@@ -1,4 +1,4 @@
-package com.typologies.api.documents;
+package com.typologies.api.documents.domain;
 
 public enum TypologieType {
     CLASSIC("Classique"),

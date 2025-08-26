@@ -1,5 +1,6 @@
 package com.typologies.api.documents;
 
+import com.typologies.api.documents.dto.TypologieDto;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;

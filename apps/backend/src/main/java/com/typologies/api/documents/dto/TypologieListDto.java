@@ -1,4 +1,4 @@
-package com.typologies.api.documents;
+package com.typologies.api.documents.dto;
 
 import java.util.List;
 
