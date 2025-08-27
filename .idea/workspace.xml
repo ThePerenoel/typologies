@@ -8,9 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/TypologiesEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/TypologiesEndpoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/dto/TypologieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/dto/TypologieDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/infra/InMemoryTypologieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/infra/InMemoryTypologieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/src/components/tables/typologie-table/TypologieTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/components/tables/typologie-table/TypologieTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/frontend/src/components/tables/typologie-table/TypologieModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/components/tables/typologie-table/TypologieModal.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +128,7 @@
       <option name="presentableId" value="Default" />
       <updated>1756108804384</updated>
       <workItem from="1756108805469" duration="4076000" />
-      <workItem from="1756276564425" duration="4363000" />
+      <workItem from="1756276564425" duration="5354000" />
     </task>
     <servers />
   </component>

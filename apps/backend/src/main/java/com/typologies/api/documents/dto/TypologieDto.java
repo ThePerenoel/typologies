@@ -59,4 +59,15 @@ public class TypologieDto {
     public void setEmailAdresses(List<String> emailAdresses) {
         this.emailAdresses = emailAdresses;
     }
+
+    @Override
+    public String toString() {
+        return "TypologieDto{" +
+                "title='" + title + '\'' +
+                ", type='" + type + '\'' +
+                ", requiresSignature=" + requiresSignature +
+                ", requiresInitials=" + requiresInitials +
+                ", emailAdresses=" + emailAdresses +
+                '}';
+    }
 }

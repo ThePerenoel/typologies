@@ -26,20 +26,14 @@ public class TypologiesEndpoint {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTypologies() {
         List<TypologieDto> typologies = getAllTypologie.act();
-        return Response.ok(typologies)
-                .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-                .header("Access-Control-Allow-Headers", "Content-Type, Authorization")
-                .build();
+        return Response.ok(typologies).build();
     }
 
     @POST
     public Response addTypologie(TypologieDto typologie) {
+        System.out.println(typologie);
         createTypologie.act(typologie);
-        return Response.ok().header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-                .header("Access-Control-Allow-Headers", "Content-Type, Authorization")
-                .build();
+        return Response.ok().build();
     }
 
 }
