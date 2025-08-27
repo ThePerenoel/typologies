@@ -1,6 +1,6 @@
 <template>
 
-  <Button size="sm" variant="primary" :startIcon="PlusIcon"> Ajouter </Button>
+  <Button size="sm" variant="primary" :startIcon="PlusIcon" @click="openModal"> Ajouter </Button>
 
   <div
     class="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]"
@@ -83,24 +83,33 @@
       </table>
     </div>
   </div>
+  <TypologieModal v-if="isModalOpen" @close="isModalOpen = false">
+    <p>Contenu personnalisé sans utiliser de slots nommés</p>
+  </TypologieModal>
 </template>
 
 <script lang="ts" setup>
-import {
-  DocsIcon,
-  PlusIcon, RefreshIcon,
-  TrashIcon
-} from '@/icons'
-import Button from '@/components/ui/Button.vue'
-import { onMounted, ref } from "vue";
-import type { Typologie } from "@/components/tables/typologie-table/Typologie.ts";
+  import {
+    DocsIcon,
+    PlusIcon, RefreshIcon,
+    TrashIcon
+  } from '@/icons'
+  import Button from '@/components/ui/Button.vue'
+  import { onMounted, ref } from "vue";
+  import type { Typologie } from "@/components/tables/typologie-table/Typologie.ts";
+  import TypologieModal from "@/components/tables/typologie-table/TypologieModal.vue";
 
-const typologies = ref<Typologie[]>([]);
+  const typologies = ref<Typologie[]>([]);
+  const isModalOpen = ref(false)
 
-onMounted(async () => {
-  const res = await fetch("http://localhost:8080/api/typologie");
-  typologies.value = await res.json() as Typologie[];
-})
+  const openModal = () => {
+    isModalOpen.value = true
+  }
+
+  onMounted(async () => {
+    const res = await fetch("/api/typologie");
+    typologies.value = await res.json() as Typologie[];
+  })
 
 </script>
 

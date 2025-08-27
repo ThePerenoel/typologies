@@ -10,6 +10,8 @@ public class TypologieDto {
     private boolean requiresInitials;
     private List<String> emailAdresses;
 
+    public TypologieDto() {}
+
     public TypologieDto(String title, String type, boolean requiresSignature, boolean requiresInitials, List<String> emailAdresses) {
         this.title = title;
         this.type = type;
