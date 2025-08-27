@@ -4,6 +4,7 @@ import java.util.List;
 
 public class TypologieDto {
 
+    private String id;
     private String title;
     private String type;
     private boolean requiresSignature;
@@ -12,12 +13,21 @@ public class TypologieDto {
 
     public TypologieDto() {}
 
-    public TypologieDto(String title, String type, boolean requiresSignature, boolean requiresInitials, List<String> emailAdresses) {
+    public TypologieDto(String id, String title, String type, boolean requiresSignature, boolean requiresInitials, List<String> emailAdresses) {
+        this.id = id;
         this.title = title;
         this.type = type;
         this.requiresSignature = requiresSignature;
         this.requiresInitials = requiresInitials;
         this.emailAdresses = emailAdresses;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {

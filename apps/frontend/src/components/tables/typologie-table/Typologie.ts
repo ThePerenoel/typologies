@@ -1,4 +1,5 @@
 export interface Typologie {
+  id: string;
   title: string;
   type: string;
   requiresSignature: boolean;

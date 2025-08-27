@@ -4,9 +4,7 @@ import com.typologies.api.documents.domain.TypologieRepository;
 import com.typologies.api.documents.entity.TypologieEntity;
 import jakarta.enterprise.context.ApplicationScoped;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @ApplicationScoped
 public class InMemoryTypologieRepository implements TypologieRepository {
@@ -29,5 +27,18 @@ public class InMemoryTypologieRepository implements TypologieRepository {
     @Override
     public void save(TypologieEntity typologieEntity) {
         store.add(typologieEntity);
+    }
+
+    @Override
+    public void delete(String id) {
+        store.stream()
+                .filter(typologieEntity -> typologieEntity.getId().equals(UUID.fromString(id)))
+                .findFirst()
+                .ifPresent(typologieEntity -> store.remove(typologieEntity));
+    }
+
+    @Override
+    public void modify(TypologieEntity typologieEntity) {
+
     }
 }

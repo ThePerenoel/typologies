@@ -75,7 +75,7 @@
           <td class="px-5 py-4 sm:px-6">
             <div class="flex items-center gap-5">
               <Button size="sm" variant="primary" :startIcon="RefreshIcon"> Modifier </Button>
-              <Button size="md" variant="outline" :startIcon="TrashIcon"> Supprimer </Button>
+              <Button size="md" variant="outline" :startIcon="TrashIcon" @click="deleteTypologie(typologie.id)"> Supprimer </Button>
             </div>
           </td>
         </tr>
@@ -104,6 +104,17 @@
 
   const openModal = () => {
     isModalOpen.value = true
+  }
+
+  const deleteTypologie = async (id: string) => {
+    const res = await fetch("/api/typologie/" + id, {
+      method: "DELETE"
+    });
+    if (res.status === 200) {
+      typologies.value = typologies.value.filter((typologie) =>
+        typologie.id !== id
+      )
+    }
   }
 
   onMounted(async () => {

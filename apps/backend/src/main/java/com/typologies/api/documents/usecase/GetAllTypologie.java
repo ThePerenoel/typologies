@@ -23,6 +23,7 @@ public class GetAllTypologie {
 
     private static TypologieDto convertToDto(TypologieEntity typologieEntity) {
         return new TypologieDto(
+                typologieEntity.getId().toString(),
                 typologieEntity.getTitle(),
                 typologieEntity.getType(),
                 typologieEntity.requiresSignature(),
