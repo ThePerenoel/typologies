@@ -40,6 +40,7 @@
     if (!response.ok) {
       throw new Error(`Erreur HTTP: ${response.status}`);
     }
+    close();
   }
 </script>
 

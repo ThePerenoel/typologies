@@ -1,6 +1,7 @@
 package com.typologies.api.documents.usecase;
 
 import com.typologies.api.documents.domain.TypologieRepository;
+import com.typologies.api.documents.domain.TypologieType;
 import com.typologies.api.documents.dto.TypologieDto;
 import com.typologies.api.documents.entity.TypologieEntity;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -15,7 +16,7 @@ public class CreateTypologie {
     public void act(TypologieDto typologieDto) {
         typologieRepository.save(new TypologieEntity(
                 typologieDto.getTitle(),
-                typologieDto.getType(),
+                TypologieType.valueOf(typologieDto.getType()).getLabel(),
                 typologieDto.isRequiresSignature(),
                 typologieDto.isRequiresInitials(),
                 typologieDto.getEmailAdresses()

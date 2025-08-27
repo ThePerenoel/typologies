@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8b634a8d-caa0-4b21-be1e-ea66697995ff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/TypologiesEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/TypologiesEndpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/dto/TypologieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/dto/TypologieDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/domain/TypologieType.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/domain/TypologieType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/usecase/CreateTypologie.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/usecase/CreateTypologie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/frontend/src/components/tables/typologie-table/TypologieModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/components/tables/typologie-table/TypologieModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +130,7 @@
       <option name="presentableId" value="Default" />
       <updated>1756108804384</updated>
       <workItem from="1756108805469" duration="4076000" />
-      <workItem from="1756276564425" duration="5354000" />
+      <workItem from="1756276564425" duration="6700000" />
     </task>
     <servers />
   </component>
