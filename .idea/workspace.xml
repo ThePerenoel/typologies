@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8b634a8d-caa0-4b21-be1e-ea66697995ff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/domain/TypologieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/domain/TypologieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/infra/InMemoryTypologieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/infra/InMemoryTypologieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/src/components/layout/AppSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/components/layout/AppSidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/src/views/Others/UserProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/views/Others/UserProfile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/src/views/Typologies/TypologiesList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/views/Typologies/TypologiesList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/frontend/src/components/users/UsersCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/components/users/UsersCard.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +127,7 @@
       <updated>1756108804384</updated>
       <workItem from="1756108805469" duration="4076000" />
       <workItem from="1756276564425" duration="15486000" />
-      <workItem from="1756358504093" duration="2361000" />
+      <workItem from="1756358504093" duration="6474000" />
     </task>
     <servers />
   </component>
