@@ -5,6 +5,7 @@ import com.typologies.api.documents.entity.TypologieEntity;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class InMemoryTypologieRepository implements TypologieRepository {
@@ -38,7 +39,11 @@ public class InMemoryTypologieRepository implements TypologieRepository {
     }
 
     @Override
-    public void modify(TypologieEntity typologieEntity) {
-
+    public List<TypologieEntity> getForIds(List<UUID> ids) {
+        return store.stream()
+                .filter(typologieEntity -> ids.contains(typologieEntity.getId()))
+                .toList();
     }
+
+
 }

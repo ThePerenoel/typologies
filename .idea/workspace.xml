@@ -6,13 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8b634a8d-caa0-4b21-be1e-ea66697995ff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/TypologiesEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/TypologiesEndpoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/domain/TypologieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/domain/TypologieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/dto/TypologieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/dto/TypologieDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/infra/InMemoryTypologieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/infra/InMemoryTypologieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/usecase/GetAllTypologie.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/usecase/GetAllTypologie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/src/components/tables/typologie-table/Typologie.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/components/tables/typologie-table/Typologie.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/src/components/tables/typologie-table/TypologieTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/components/tables/typologie-table/TypologieTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/frontend/src/components/layout/AppSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/components/layout/AppSidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/frontend/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/frontend/src/views/Others/UserProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/views/Others/UserProfile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/frontend/src/views/Typologies/TypologiesList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/views/Typologies/TypologiesList.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Vue Composition API Component" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -132,7 +131,8 @@
       <option name="presentableId" value="Default" />
       <updated>1756108804384</updated>
       <workItem from="1756108805469" duration="4076000" />
-      <workItem from="1756276564425" duration="8818000" />
+      <workItem from="1756276564425" duration="15486000" />
+      <workItem from="1756358504093" duration="2361000" />
     </task>
     <servers />
   </component>

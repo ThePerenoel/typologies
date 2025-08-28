@@ -8,8 +8,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'Ecommerce',
-      component: () => import('../views/Ecommerce.vue'),
+      name: 'Typologies',
+      component: () => import('../views/Typologies/TypologiesList.vue'),
       meta: {
         title: 'eCommerce Dashboard',
       },
@@ -52,6 +52,14 @@ const router = createRouter({
       component: () => import('../views/Typologies/TypologiesList.vue'),
       meta: {
         title: 'Typologies',
+      },
+    },
+    {
+      path: '/users',
+      name: 'Users list',
+      component: () => import('../views/Users/UsersList.vue'),
+      meta: {
+        title: 'Users',
       },
     },
     {

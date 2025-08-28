@@ -20,22 +20,7 @@
       ]"
     >
       <router-link to="/">
-        <img
-          v-if="isExpanded || isHovered || isMobileOpen"
-          class="dark:hidden"
-          src="/images/logo/logo.svg"
-          alt="Logo"
-          width="150"
-          height="40"
-        />
-        <img
-          v-if="isExpanded || isHovered || isMobileOpen"
-          class="hidden dark:block"
-          src="/images/logo/logo-dark.svg"
-          alt="Logo"
-          width="150"
-          height="40"
-        />
+        <h1>Dashboard</h1>
       </router-link>
     </div>
     <div
@@ -215,6 +200,7 @@ import {
   ListIcon,
 } from "../../icons";
 import { useSidebar } from "@/composables/useSidebar";
+import { UserIcon } from "lucide-vue-next";
 
 const route = useRoute();
 
@@ -230,24 +216,9 @@ const menuGroups = [
         path: "typologies-list"
       },
       {
-        name: "Forms",
-        icon: ListIcon,
-        subItems: [
-          { name: "Form Elements", path: "/form-elements", pro: false },
-        ],
-      },
-      {
-        name: "Tables",
-        icon: TableIcon,
-        subItems: [{ name: "Basic Tables", path: "/basic-tables", pro: false }],
-      },
-      {
-        name: "Pages",
-        icon: PageIcon,
-        subItems: [
-          { name: "Black Page", path: "/blank", pro: false },
-          { name: "404 Page", path: "/error-404", pro: false },
-        ],
+        name: "Users",
+        icon: UserIcon,
+        path: "users"
       },
     ],
   },
