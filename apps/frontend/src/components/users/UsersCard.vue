@@ -79,11 +79,23 @@ const onChangeWithEmit = (event: Event) => {
     }
 
     const alreadyExists = localUser.typologies.some(t => t.id === typologieSelected.id);
-    if (!alreadyExists) {
-      localUser.typologies.push(typologieSelected);
+    if(alreadyExists) {
+      return;
     }
 
-    // Reset du select
+    localUser.typologies.push(typologieSelected);
+    console.log(props.user.id)
+    fetch("/api/users/associate", {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify({
+        typologieId:target.value,
+        userId:props.user.id
+      })
+    })
+
     selectedTypologie.value = "";
   }
 }

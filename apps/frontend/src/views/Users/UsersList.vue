@@ -28,6 +28,7 @@ onMounted(async () => {
   users.value = await res.json() as User[];
   const res1 = await fetch("/api/typologie");
   typologies.value = await res1.json() as Typologie[];
+  console.log(users.value);
 })
 
 </script>

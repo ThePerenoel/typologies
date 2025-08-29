@@ -1,5 +1,6 @@
 package com.typologies.api.users.usecase;
 
+import com.typologies.api.documents.dto.TypologieDto;
 import com.typologies.api.documents.usecase.GetAllTypologieByUuid;
 import com.typologies.api.users.domain.UserRepository;
 import com.typologies.api.users.dto.UserDto;
@@ -20,12 +21,14 @@ public class GetAllUsers {
     public List<UserDto> act() {
         return userRepository.getAll()
                 .stream()
-                .map(userEntity -> new UserDto(
+                .map(userEntity -> {
+                    return new UserDto(
                             userEntity.getId(),
                             userEntity.getFirstName(),
                             userEntity.getLastName(),
                             getAllTypologieByUuid.act(userEntity.getTypologies())
-                        )).toList();
+                    );
+                }).toList();
     }
 
 }

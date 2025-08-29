@@ -6,7 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8b634a8d-caa0-4b21-be1e-ea66697995ff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/entity/TypologieEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/entity/TypologieEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/UsersEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/UsersEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/domain/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/domain/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/infra/InMemoryUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/infra/InMemoryUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/usecase/GetAllUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/usecase/GetAllUsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/frontend/src/components/users/UsersCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/components/users/UsersCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/frontend/src/views/Users/UsersList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/views/Users/UsersList.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

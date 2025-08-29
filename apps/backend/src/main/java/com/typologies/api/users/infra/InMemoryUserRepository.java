@@ -6,6 +6,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.UUID;
 
 @ApplicationScoped
@@ -23,4 +24,13 @@ public class InMemoryUserRepository implements UserRepository {
     public ArrayList<UserEntity> getAll() {
         return store;
     }
+
+    @Override
+    public void associate(String userId, String typologieId) {
+        Optional<UserEntity> first = store.stream()
+                .filter(userEntity -> userEntity.getId().equals(userId))
+                .findFirst();
+        first.ifPresent(userEntity -> userEntity.getTypologies().add(UUID.fromString(typologieId)));
+    }
+
 }

@@ -35,6 +35,10 @@ public class UserDto {
         this.id = id;
     }
 
+    public List<TypologieDto> getTypologies() {
+        return typologies;
+    }
+
     public void setTypologies(List<TypologieDto> typologies) {
         this.typologies = typologies;
     }
@@ -55,4 +59,14 @@ public class UserDto {
         this.lastName = lastName;
     }
 
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", typologies=" + typologies +
+                '}';
+    }
 }

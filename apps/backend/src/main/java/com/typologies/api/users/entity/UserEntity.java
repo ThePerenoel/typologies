@@ -48,4 +48,14 @@ public class UserEntity {
     public void setTypologies(ArrayList<UUID> typologies) {
         this.typologies = typologies;
     }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", typologies=" + typologies +
+                '}';
+    }
 }

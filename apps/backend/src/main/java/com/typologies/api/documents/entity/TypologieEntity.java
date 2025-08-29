@@ -64,4 +64,16 @@ public class TypologieEntity {
     public void setEmailAdresses(List<String> emailAdresses) {
         this.emailAdresses = emailAdresses;
     }
+
+    @Override
+    public String toString() {
+        return "TypologieEntity{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", type='" + type + '\'' +
+                ", requiresSignature=" + requiresSignature +
+                ", requiresInitials=" + requiresInitials +
+                ", emailAdresses=" + emailAdresses +
+                '}';
+    }
 }
