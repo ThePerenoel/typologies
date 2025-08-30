@@ -29,7 +29,7 @@ public class GetAllTypologie {
                 typologieEntity.getTitle(),
                 typologieEntity.getType(),
                 typologieEntity.requiresSignature(),
-                typologieEntity.requiresSignature(),
+                typologieEntity.requiresInitials(),
                 typologieEntity.getEmailAdresses()
         );
     }

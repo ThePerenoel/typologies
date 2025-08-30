@@ -4,7 +4,6 @@ import com.typologies.api.documents.dto.TypologieDto;
 import com.typologies.api.documents.usecase.CreateTypologie;
 import com.typologies.api.documents.usecase.DeleteTypologie;
 import com.typologies.api.documents.usecase.GetAllTypologie;
-import jakarta.annotation.Nonnull;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
