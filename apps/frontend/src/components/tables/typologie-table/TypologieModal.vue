@@ -1,14 +1,6 @@
 <script setup lang="ts">
   import { reactive } from "vue";
-  import Button from "@/components/ui/Button.vue";
-
-  const emit = defineEmits<{
-    (e: 'close'): void
-  }>()
-
-  const close = () => {
-    emit('close')
-  }
+  import Modal from "@/components/profile/Modal.vue";
 
   const options = [
     { value: 'GENERAL', label: 'Général' },
@@ -23,6 +15,14 @@
     emails: '',
   })
 
+  const emit = defineEmits<{
+    (e: 'close'): void
+  }>()
+
+  const close = () => {
+    emit('close')
+  }
+
   const saveTypologie = async () => {
     const response = await fetch('/api/typologie', {
       method: 'POST',
@@ -34,7 +34,7 @@
         type: formData.type,
         requiresSignature: formData.requiresSignature,
         requiresInitials: formData.requiresInitials,
-        emailAdresses: formData.emails.split(",").map((e) => e.trim()),
+        emailAdresses: formData.emails.split(",").map((email) => email.trim()),
       })
     });
     if (!response.ok) {
@@ -45,52 +45,89 @@
 </script>
 
 <template>
-  <div class="modal-backdrop">
-    <div class="modal">
-      <header class="modal-header">
-        <slot name="header">Ajouter une typologie</slot>
-        <button @click="close">x</button>
-      </header>
-      <section class="modal-body">
-        <div class="mb-3">
-          <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-            Titre
-          </label>
-          <input
-            type="text"
-            v-model="formData.title"
-            class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
-          />
-        </div>
-        <div class="mb-4">
-          <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-            Type
-          </label>
-          <select
-            v-model="formData.type"
-            class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
-            :class="{ 'text-gray-800 dark:text-white/90': formData.type }"
+  <Modal @close="close">
+    <template #body>
+      <div
+        class="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11"
+      >
+        <button
+          @click="close"
+          class="transition-color absolute right-5 top-5 z-999 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-600 dark:bg-gray-700 dark:bg-white/[0.05] dark:text-gray-400 dark:hover:bg-white/[0.07] dark:hover:text-gray-300"
+        >
+          <svg
+            class="fill-current"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <option v-for="(value, index) in options" :value="value.value" :key="index" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
-              {{ value.label }}
-            </option>
-          </select>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M6.04289 16.5418C5.65237 16.9323 5.65237 17.5655 6.04289 17.956C6.43342 18.3465 7.06658 18.3465 7.45711 17.956L11.9987 13.4144L16.5408 17.9565C16.9313 18.347 17.5645 18.347 17.955 17.9565C18.3455 17.566 18.3455 16.9328 17.955 16.5423L13.4129 12.0002L17.955 7.45808C18.3455 7.06756 18.3455 6.43439 17.955 6.04387C17.5645 5.65335 16.9313 5.65335 16.5408 6.04387L11.9987 10.586L7.45711 6.04439C7.06658 5.65386 6.43342 5.65386 6.04289 6.04439C5.65237 6.43491 5.65237 7.06808 6.04289 7.4586L10.5845 12.0002L6.04289 16.5418Z"
+              fill=""
+            />
+          </svg>
+        </button>
+        <div class="px-2 pr-14">
+          <h4 class="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
+            Ajouter une typologie
+          </h4>
+          <p class="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
+            Ajouter une typologie avant de lui associer un utilisateur.
+          </p>
         </div>
-        <div class="mb-3">
-          <label
-            for="checkboxLabelOne"
-            class="flex items-center text-sm font-medium text-gray-700 cursor-pointer select-none dark:text-gray-400"
-          >
-            <div class="relative">
-              <input type="checkbox" id="checkboxLabelOne" v-model="formData.requiresSignature" class="sr-only" />
-              <div
-                :class="
+        <form class="flex flex-col">
+          <div class="custom-scrollbar overflow-y-auto p-2">
+            <div class="mt-2">
+
+              <div class="grid grid-cols-1 gap-x-6 gap-y-5 lg:grid-cols-2">
+                <div class="col-span-2 lg:col-span-1">
+                  <label
+                    class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400"
+                  >
+                    Titre
+                  </label>
+                  <input
+                    type="text"
+                    v-model="formData.title"
+                    class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
+                  />
+                </div>
+
+                <div class="col-span-2 lg:col-span-1">
+                  <label
+                    class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400"
+                  >
+                    Type
+                  </label>
+                  <select
+                    v-model="formData.type"
+                    class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
+                    :class="{ 'text-gray-800 dark:text-white/90': formData.type }"
+                  >
+                    <option v-for="(value, index) in options" :value="value.value" :key="index" class="text-gray-700 dark:bg-gray-900 dark:text-gray-400">
+                      {{ value.label }}
+                    </option>
+                  </select>
+                </div>
+
+                <div class="col-span-2 lg:col-span-1">
+                  <label
+                    for="checkboxLabelOne"
+                    class="flex items-center text-sm font-medium text-gray-700 cursor-pointer select-none dark:text-gray-400"
+                  >
+                    <div class="relative">
+                      <input type="checkbox" id="checkboxLabelOne" v-model="formData.requiresSignature" class="sr-only" />
+                      <div
+                        :class="
                 formData.requiresSignature
                   ? 'border-brand-500 bg-brand-500'
                   : 'bg-transparent border-gray-300 dark:border-gray-700'
               "
-                class="mr-3 flex h-5 w-5 items-center justify-center rounded-md border-[1.25px] hover:border-brand-500 dark:hover:border-brand-500"
-              >
+                        class="mr-3 flex h-5 w-5 items-center justify-center rounded-md border-[1.25px] hover:border-brand-500 dark:hover:border-brand-500"
+                      >
               <span :class="formData.requiresSignature ? '' : 'opacity-0'">
                 <svg
                   width="14"
@@ -108,26 +145,27 @@
                   />
                 </svg>
               </span>
-              </div>
-            </div>
-            Signature obligatoire
-          </label>
-        </div>
-        <div class="mb-3">
-          <label
-            for="checkboxLabelTwo"
-            class="flex items-center text-sm font-medium text-gray-700 cursor-pointer select-none dark:text-gray-400"
-          >
-            <div class="relative">
-              <input type="checkbox" id="checkboxLabelTwo" v-model="formData.requiresInitials" class="sr-only" />
-              <div
-                :class="
+                      </div>
+                    </div>
+                    Signature obligatoire
+                  </label>
+                </div>
+
+                <div class="col-span-2 lg:col-span-1">
+                  <label
+                    for="checkboxLabelTwo"
+                    class="flex items-center text-sm font-medium text-gray-700 cursor-pointer select-none dark:text-gray-400"
+                  >
+                    <div class="relative">
+                      <input type="checkbox" id="checkboxLabelTwo" v-model="formData.requiresInitials" class="sr-only" />
+                      <div
+                        :class="
                 formData.requiresInitials
                   ? 'border-brand-500 bg-brand-500'
                   : 'bg-transparent border-gray-300 dark:border-gray-700'
               "
-                class="mr-3 flex h-5 w-5 items-center justify-center rounded-md border-[1.25px] hover:border-brand-500 dark:hover:border-brand-500"
-              >
+                        class="mr-3 flex h-5 w-5 items-center justify-center rounded-md border-[1.25px] hover:border-brand-500 dark:hover:border-brand-500"
+                      >
               <span :class="formData.requiresInitials ? '' : 'opacity-0'">
                 <svg
                   width="14"
@@ -145,167 +183,47 @@
                   />
                 </svg>
               </span>
+                      </div>
+                    </div>
+                    Paraphe obligatoire
+                  </label>
+                </div>
+
+              </div>
+
+              <div class="col-span-2 lg:col-span-1">
+                <label
+                  class="mt-5 mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400"
+                >
+                  Adresses emails
+                </label>
+                <input
+                  type="text"
+                  v-model="formData.emails"
+                  class="dark:bg-dark-900 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
+                />
               </div>
             </div>
-            Paraphe obligatoire
-          </label>
-        </div>
-        <div class="mb-3">
-          <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-            Adresses emails
-          </label>
-          <input
-            type="text"
-            v-model="formData.emails"
-            class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
-          />
-        </div>
-      </section>
-      <footer class="modal-footer">
-        <Button class="md-9" @click="saveTypologie" size="sm" variant="primary"> Sauvegarder </Button>
-        <Button size="sm"  @click="close" variant="outline"> Fermer </Button>
-      </footer>
-    </div>
-  </div>
+          </div>
+          <div class="flex items-center gap-3 px-2 mt-6 lg:justify-end">
+            <button
+              @click="saveTypologie"
+              type="button"
+              class="flex w-full justify-center rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600 sm:w-auto"
+            >
+              Enregistrer
+            </button>
+            <button
+              @click="close"
+              type="button"
+              class="flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] sm:w-auto"
+            >
+              Fermer
+            </button>
+          </div>
+        </form>
+      </div>
+    </template>
+  </Modal>
 </template>
 
-<style scoped>
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  padding: 20px;
-  backdrop-filter: blur(4px);
-  animation: fadeIn 0.2s ease-out;
-}
-
-.modal {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
-  0 0 0 1px rgba(255, 255, 255, 0.05);
-  max-width: 500px;
-  width: 100%;
-  max-height: 90vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 24px 24px;
-  border-bottom: 1px solid #e5e7eb;
-  margin-bottom: 24px;
-  position: relative;
-}
-
-.modal-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1f2937;
-  line-height: 1.4;
-}
-
-.close-button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
-  color: #6b7280;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.close-button:hover {
-  background-color: #f3f4f6;
-  color: #374151;
-  transform: scale(1.05);
-}
-
-.close-button:active {
-  transform: scale(0.95);
-}
-
-.modal-body {
-  padding: 0 24px;
-  overflow-y: auto;
-  flex: 1;
-  color: #4b5563;
-  line-height: 1.6;
-}
-
-.modal-footer {
-  text-align: right;
-  padding: 24px;
-  border-top: 1px solid #e5e7eb;
-  margin-top: 24px;
-}
-
-.modal-footer button {
-  padding: 10px;
-}
-
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes modalIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9) translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .modal-backdrop {
-    padding: 16px;
-  }
-
-  .modal {
-    max-height: 95vh;
-    border-radius: 8px;
-  }
-
-  .modal-header,
-  .modal-body,
-  .modal-footer {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .modal-header {
-    padding-bottom: 0;
-    margin-bottom: 16px;
-  }
-
-  .modal-footer {
-    padding-top: 16px;
-    margin-top: 16px;
-  }
-}
-</style>
