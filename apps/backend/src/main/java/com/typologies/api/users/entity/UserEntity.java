@@ -7,10 +7,10 @@ public class UserEntity {
     private String id;
     private String firstName;
     private String lastName;
-    private ArrayList<UUID> typologies;
+    private ArrayList<Long> typologies;
 
     public UserEntity() {}
-    public UserEntity(String id, String firstName, String lastName, ArrayList<UUID> typologies) {
+    public UserEntity(String id, String firstName, String lastName, ArrayList<Long> typologies) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -41,11 +41,11 @@ public class UserEntity {
         this.lastName = lastName;
     }
 
-    public ArrayList<UUID> getTypologies() {
+    public ArrayList<Long> getTypologies() {
         return typologies;
     }
 
-    public void setTypologies(ArrayList<UUID> typologies) {
+    public void setTypologies(ArrayList<Long> typologies) {
         this.typologies = typologies;
     }
 

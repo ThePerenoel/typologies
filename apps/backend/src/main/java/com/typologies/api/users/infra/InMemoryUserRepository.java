@@ -26,11 +26,11 @@ public class InMemoryUserRepository implements UserRepository {
     }
 
     @Override
-    public void associate(String userId, String typologieId) {
+    public void associate(String userId, Long typologieId) {
         Optional<UserEntity> first = store.stream()
                 .filter(userEntity -> userEntity.getId().equals(userId))
                 .findFirst();
-        first.ifPresent(userEntity -> userEntity.getTypologies().add(UUID.fromString(typologieId)));
+        first.ifPresent(userEntity -> userEntity.getTypologies().add(typologieId));
     }
 
 }

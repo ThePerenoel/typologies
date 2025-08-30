@@ -1,19 +1,38 @@
 package com.typologies.api.documents.entity;
 
-import java.util.List;
-import java.util.UUID;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
+import java.util.List;
+
+@Entity
+@Table(name = "Typologie")
 public class TypologieEntity {
 
-    private UUID id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank
+    @Column(nullable = false)
     private String title;
+
+    @NotBlank
+    @Column(nullable = false)
     private String type;
+
     private boolean requiresSignature;
     private boolean requiresInitials;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "typologie_email_addresses",
+            joinColumns = @JoinColumn(name = "typologie_id"))
+    @Column(name = "email_address")
     private List<String> emailAdresses;
 
+    public TypologieEntity() {}
+
     public TypologieEntity(String title, String type, boolean requiresSignature, boolean requiresInitials, List<String> emailAdresses) {
-        this.id = UUID.randomUUID();
         this.title = title;
         this.type = type;
         this.requiresSignature = requiresSignature;
@@ -21,23 +40,27 @@ public class TypologieEntity {
         this.emailAdresses = emailAdresses;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public String getTitle() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public @NotBlank String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(@NotBlank String title) {
         this.title = title;
     }
 
-    public String getType() {
+    public @NotBlank String getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(@NotBlank String type) {
         this.type = type;
     }
 

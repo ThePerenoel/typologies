@@ -40,7 +40,7 @@ public class TypologiesEndpoint {
     @DELETE
     @Path("/{id}")
     public Response removeTypologie(@PathParam("id") String id) {
-        deleteTypologie.act(id);
+        deleteTypologie.act(Long.valueOf(id));
         return Response.ok().build();
     }
 

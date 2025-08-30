@@ -4,22 +4,23 @@ import com.typologies.api.documents.domain.TypologieRepository;
 import com.typologies.api.documents.dto.TypologieDto;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @ApplicationScoped
-public class GetAllTypologieByUuid {
+public class GetAllTypologieById {
 
     @Inject
+    @Named("postgres")
     TypologieRepository typologieRepository;
 
-    public List<TypologieDto> act(ArrayList<UUID> typologieIds) {
+    public List<TypologieDto> act(ArrayList<Long> typologieIds) {
         return typologieRepository.getForIds(typologieIds)
                 .stream()
                 .map(typologieEntity -> new TypologieDto(
-                        typologieEntity.getId().toString(),
+                        typologieEntity.getId(),
                         typologieEntity.getTitle(),
                         typologieEntity.getType(),
                         typologieEntity.requiresSignature(),

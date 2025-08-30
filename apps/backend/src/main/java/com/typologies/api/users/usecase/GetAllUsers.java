@@ -1,7 +1,6 @@
 package com.typologies.api.users.usecase;
 
-import com.typologies.api.documents.dto.TypologieDto;
-import com.typologies.api.documents.usecase.GetAllTypologieByUuid;
+import com.typologies.api.documents.usecase.GetAllTypologieById;
 import com.typologies.api.users.domain.UserRepository;
 import com.typologies.api.users.dto.UserDto;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -16,7 +15,7 @@ public class GetAllUsers {
     UserRepository userRepository;
 
     @Inject
-    GetAllTypologieByUuid getAllTypologieByUuid;
+    GetAllTypologieById getAllTypologieById;
 
     public List<UserDto> act() {
         return userRepository.getAll()
@@ -26,7 +25,7 @@ public class GetAllUsers {
                             userEntity.getId(),
                             userEntity.getFirstName(),
                             userEntity.getLastName(),
-                            getAllTypologieByUuid.act(userEntity.getTypologies())
+                            getAllTypologieById.act(userEntity.getTypologies())
                     );
                 }).toList();
     }

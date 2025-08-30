@@ -6,5 +6,5 @@ import java.util.ArrayList;
 
 public interface UserRepository {
     ArrayList<UserEntity> getAll();
-    void associate(String userId, String typologieId);
+    void associate(String userId, Long typologieId);
 }

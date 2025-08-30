@@ -10,7 +10,7 @@ public class AssociateTypologie {
     @Inject
     UserRepository userRepository;
 
-    public void act(String userId, String typologieId) {
+    public void act(String userId, Long typologieId) {
         userRepository.associate(userId, typologieId);
     }
 

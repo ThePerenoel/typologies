@@ -1,13 +1,14 @@
 package com.typologies.api.users.dto;
 
 public class TypologieToUserDto {
-    private String typologieId;
+    private Long typologieId;
     private String userId;
 
     public TypologieToUserDto() {}
 
-    public TypologieToUserDto(String typologieId, String userId) {
+    public TypologieToUserDto(Long typologieId, String userId) {
         this.typologieId = typologieId;
+        this.userId = userId;
     }
 
     public String getUserId() {
@@ -18,11 +19,11 @@ public class TypologieToUserDto {
         this.userId = userId;
     }
 
-    public String getTypologieId() {
+    public Long getTypologieId() {
         return typologieId;
     }
 
-    public void setTypologieId(String typologieId) {
+    public void setTypologieId(Long typologieId) {
         this.typologieId = typologieId;
     }
 

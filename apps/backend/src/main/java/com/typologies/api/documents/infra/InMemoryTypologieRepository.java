@@ -3,11 +3,12 @@ package com.typologies.api.documents.infra;
 import com.typologies.api.documents.domain.TypologieRepository;
 import com.typologies.api.documents.entity.TypologieEntity;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @ApplicationScoped
+@Named("inMemory")
 public class InMemoryTypologieRepository implements TypologieRepository {
 
     private final List<String> emails = List.of("aaaa@gmail.com, bbbb@gmail.com, ccc@gmail.com");
@@ -31,15 +32,15 @@ public class InMemoryTypologieRepository implements TypologieRepository {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(Long id) {
         store.stream()
-                .filter(typologieEntity -> typologieEntity.getId().equals(UUID.fromString(id)))
+                .filter(typologieEntity -> typologieEntity.getId().equals(id))
                 .findFirst()
                 .ifPresent(typologieEntity -> store.remove(typologieEntity));
     }
 
     @Override
-    public List<TypologieEntity> getForIds(List<UUID> ids) {
+    public List<TypologieEntity> getForIds(List<Long> ids) {
         return store.stream()
                 .filter(typologieEntity -> ids.contains(typologieEntity.getId()))
                 .toList();

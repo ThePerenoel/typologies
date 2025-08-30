@@ -5,6 +5,7 @@ import com.typologies.api.documents.dto.TypologieDto;
 import com.typologies.api.documents.entity.TypologieEntity;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
 public class GetAllTypologie {
 
     @Inject
+    @Named("postgres")
     TypologieRepository typologieRepository;
 
     public List<TypologieDto> act() {
@@ -23,7 +25,7 @@ public class GetAllTypologie {
 
     private static TypologieDto convertToDto(TypologieEntity typologieEntity) {
         return new TypologieDto(
-                typologieEntity.getId().toString(),
+                typologieEntity.getId(),
                 typologieEntity.getTitle(),
                 typologieEntity.getType(),
                 typologieEntity.requiresSignature(),
