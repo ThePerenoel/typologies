@@ -4,7 +4,7 @@
   "description": "API REST avec WildFly",
   "scripts": {
     "build": "mvn clean package",
-    "dev": "mvn clean wildfly:dev",
+    "dev": "export POSTGRESQL_USER=postgres;export POSTGRESQL_PASSWORD=postgres123;export POSTGRESQL_DATABASE=typologies_db;./target/server/bin/standalone.sh;",
     "clean": "mvn clean && rm -rf target/",
     "test": "mvn test",
     "lint": "echo 'Pas de linting configuré pour Maven'"

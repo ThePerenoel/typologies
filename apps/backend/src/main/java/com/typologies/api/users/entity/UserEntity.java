@@ -33,6 +33,12 @@ public class UserEntity {
 
     public UserEntity() {}
 
+    public UserEntity(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.typologies = new ArrayList<>();
+    }
+
     public UserEntity(String firstName, String lastName, List<TypologieEntity> typologies) {
         this.firstName = firstName;
         this.lastName = lastName;

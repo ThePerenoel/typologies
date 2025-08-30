@@ -18,9 +18,6 @@ public class GetAllUsers {
     @Named("postgresUserRepository")
     UserRepository userRepository;
 
-    @Inject
-    GetAllTypologieById getAllTypologieById;
-
     public List<UserDto> act() {
         return userRepository.getAll()
                 .stream()

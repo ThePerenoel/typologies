@@ -7,4 +7,5 @@ import java.util.List;
 public interface UserRepository {
     List<UserEntity> getAll();
     void associate(Long userId, Long typologieId);
+    void add(UserEntity userEntity);
 }

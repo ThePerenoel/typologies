@@ -34,4 +34,9 @@ public class InMemoryUserRepository implements UserRepository {
         //first.ifPresent(userEntity -> userEntity.getTypologies().add(typologieId));
     }
 
+    @Override
+    public void add(UserEntity userEntity) {
+        store.add(userEntity);
+    }
+
 }

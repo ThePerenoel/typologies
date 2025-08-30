@@ -31,4 +31,10 @@ public class PostgresUserRepository implements UserRepository {
         userEntity.getTypologies().add(typologieEntity);
         entityManager.persist(userEntity);
     }
+
+    @Override
+    @Transactional
+    public void add(UserEntity userEntity) {
+        entityManager.persist(userEntity);
+    }
 }

@@ -2,6 +2,7 @@ package com.typologies.api.users;
 
 import com.typologies.api.users.dto.TypologieToUserDto;
 import com.typologies.api.users.dto.UserDto;
+import com.typologies.api.users.usecase.AddUser;
 import com.typologies.api.users.usecase.AssociateTypologie;
 import com.typologies.api.users.usecase.GetAllUsers;
 import jakarta.inject.Inject;
@@ -23,11 +24,21 @@ public class UsersEndpoint {
     @Inject
     AssociateTypologie associateTypologie;
 
+    @Inject
+    AddUser addUser;
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsers() {
         List<UserDto> users = getAllUsers.act();
         return Response.ok(users).build();
+    }
+
+    @POST
+
+    public Response addUser(UserDto userDto) {
+        addUser.act(userDto);
+        return Response.ok().build();
     }
 
     @POST
