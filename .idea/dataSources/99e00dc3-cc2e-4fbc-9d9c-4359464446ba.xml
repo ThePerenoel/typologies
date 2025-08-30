@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>747</IntrospectionStateNumber>
+      <IntrospectionStateNumber>800</IntrospectionStateNumber>
       <ServerVersion>15.5</ServerVersion>
       <StartupTime>1756447955</StartupTime>
       <TimeZones>true ACDT
@@ -806,7 +806,7 @@ true posixrules
 13252||10|C|G
 13252||-9223372036854775808|U|G
 13252||10|U|G</Grants>
-      <IntrospectionStateNumber>747</IntrospectionStateNumber>
+      <IntrospectionStateNumber>800</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4219,104 +4219,191 @@ true posixrules
     <schema id="262" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>747</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-08-30.07:40:11</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>800</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-08-30.08:47:03</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <sequence id="263" parent="262" name="typologie_id_seq">
+    <sequence id="263" parent="262" name="app_user_id_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>16389</ObjectId>
+      <ObjectId>16486</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>744</StateNumber>
+      <StateNumber>793</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="264" parent="262" name="typologie">
-      <ObjectId>16390</ObjectId>
-      <StateNumber>746</StateNumber>
+    <sequence id="264" parent="262" name="typologie_id_seq">
+      <DasType>bigint|0s</DasType>
+      <ObjectId>16494</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>794</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <table id="265" parent="262" name="app_user">
+      <ObjectId>16487</ObjectId>
+      <StateNumber>799</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="265" parent="262" name="typologie_email_addresses">
-      <ObjectId>16397</ObjectId>
-      <StateNumber>746</StateNumber>
+    <table id="266" parent="262" name="typologie">
+      <ObjectId>16495</ObjectId>
+      <StateNumber>797</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="266" parent="264" name="requiresinitials">
-      <DasType>boolean|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>744</StateNumber>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="267" parent="264" name="requiressignature">
-      <DasType>boolean|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>744</StateNumber>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="268" parent="264" name="id">
+    <table id="267" parent="262" name="typologie_email_addresses">
+      <ObjectId>16502</ObjectId>
+      <StateNumber>797</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="268" parent="262" name="user_typologie">
+      <ObjectId>16505</ObjectId>
+      <StateNumber>798</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="269" parent="265" name="id">
       <DasType>bigint|0s</DasType>
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>744</StateNumber>
-      <SequenceId>16389</SequenceId>
+      <Position>1</Position>
+      <StateNumber>793</StateNumber>
+      <SequenceId>16486</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="269" parent="264" name="title">
+    <column id="270" parent="265" name="firstname">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>744</StateNumber>
+      <Position>2</Position>
+      <StateNumber>793</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="270" parent="264" name="type">
+    <column id="271" parent="265" name="lastname">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>744</StateNumber>
+      <Position>3</Position>
+      <StateNumber>793</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="271" parent="264" name="typologie_pkey">
+    <index id="272" parent="265" name="app_user_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16395</ObjectId>
+      <ObjectId>16492</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>744</StateNumber>
+      <StateNumber>793</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="272" parent="264" name="typologie_pkey">
+    <key id="273" parent="265" name="app_user_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16396</ObjectId>
+      <ObjectId>16493</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>744</StateNumber>
-      <UnderlyingIndexId>16395</UnderlyingIndexId>
+      <StateNumber>793</StateNumber>
+      <UnderlyingIndexId>16492</UnderlyingIndexId>
     </key>
-    <column id="273" parent="265" name="typologie_id">
+    <column id="274" parent="266" name="id">
+      <DasType>bigint|0s</DasType>
+      <IdentityKind>by-default</IdentityKind>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>794</StateNumber>
+      <SequenceId>16494</SequenceId>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="275" parent="266" name="requiresinitials">
+      <DasType>boolean|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>794</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="276" parent="266" name="requiressignature">
+      <DasType>boolean|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>794</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="277" parent="266" name="title">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>794</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="278" parent="266" name="type">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>794</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="279" parent="266" name="typologie_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16500</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>794</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="280" parent="266" name="typologie_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16501</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>794</StateNumber>
+      <UnderlyingIndexId>16500</UnderlyingIndexId>
+    </key>
+    <column id="281" parent="267" name="typologie_id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>745</StateNumber>
+      <StateNumber>795</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="274" parent="265" name="email_address">
+    <column id="282" parent="267" name="email_address">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>745</StateNumber>
+      <StateNumber>795</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="275" parent="265" name="fknvdtffy4rcn8aabpdqdfeufo9">
+    <foreign-key id="283" parent="267" name="fknvdtffy4rcn8aabpdqdfeufo9">
       <ColNames>typologie_id</ColNames>
-      <ObjectId>16400</ObjectId>
-      <StateNumber>746</StateNumber>
-      <RefKeyColPositions>3</RefKeyColPositions>
-      <RefTableId>16390</RefTableId>
+      <ObjectId>16508</ObjectId>
+      <StateNumber>797</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16495</RefTableId>
+    </foreign-key>
+    <column id="284" parent="268" name="user_id">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>796</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="285" parent="268" name="typologie_id">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>796</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="286" parent="268" name="fkrxkepsdfsbhw2cgkaolsjp1gi">
+      <ColNames>user_id</ColNames>
+      <ObjectId>16518</ObjectId>
+      <StateNumber>799</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16487</RefTableId>
+    </foreign-key>
+    <foreign-key id="287" parent="268" name="fksr11kwxehv2l0vnu9k8tpwma7">
+      <ColNames>typologie_id</ColNames>
+      <ObjectId>16513</ObjectId>
+      <StateNumber>798</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16495</RefTableId>
     </foreign-key>
   </database-model>
 </dataSource>

@@ -2,20 +2,20 @@ package com.typologies.api.users.dto;
 
 public class TypologieToUserDto {
     private Long typologieId;
-    private String userId;
+    private Long userId;
 
     public TypologieToUserDto() {}
 
-    public TypologieToUserDto(Long typologieId, String userId) {
+    public TypologieToUserDto(Long typologieId, Long userId) {
         this.typologieId = typologieId;
         this.userId = userId;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

@@ -41,6 +41,6 @@ public class PostgresTypologieRepository implements TypologieRepository {
 
     @Override
     public List<TypologieEntity> getForIds(List<Long> ids) {
-        return List.of();
+        return entityManager.createQuery("SELECT t from TypologieEntity t where t.id in (:ids)", TypologieEntity.class).getResultList();
     }
 }

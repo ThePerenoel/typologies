@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b634a8d-caa0-4b21-be1e-ea66697995ff" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/99e00dc3-cc2e-4fbc-9d9c-4359464446ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/99e00dc3-cc2e-4fbc-9d9c-4359464446ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/99e00dc3-cc2e-4fbc-9d9c-4359464446ba/storage_v2/_src_/database/typologies_db.ZlRRXw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/99e00dc3-cc2e-4fbc-9d9c-4359464446ba/storage_v2/_src_/database/typologies_db.ZlRRXw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/infra/PostgresTypologieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/documents/infra/PostgresTypologieRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/domain/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/domain/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/dto/TypologieToUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/dto/TypologieToUserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/infra/InMemoryUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/infra/InMemoryUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/usecase/AssociateTypologie.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/usecase/AssociateTypologie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/usecase/GetAllUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/src/main/java/com/typologies/api/users/usecase/GetAllUsers.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
